@@ -1,6 +1,6 @@
 {
     "name": "devanime/roronoa-zoro",
-    "description": "A DevAnime plugin containing a collection of VC components.",
+    "description": "The frontend library of reusable components for all website builds.",
     "authors": [
         {
             "name": "DevAnime",
