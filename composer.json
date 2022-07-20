@@ -1,6 +1,6 @@
 {
     "name": "devanime/roronoa-zoro",
-    "description": "The frontend library of reusable components for all website builds.",
+    "description": "A custom build over Visual Composer, this is the page-builder CMS experience.",
     "authors": [
         {
             "name": "DevAnime",
