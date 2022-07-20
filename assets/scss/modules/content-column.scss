@@ -1,0 +1,88 @@
+@import '../common/variables';
+
+.content-column {
+    display: flex;
+    &__inner {
+        width: 100%;
+        > * {
+            // Inner component/element spacing
+            @include responsive-component-margin-default();
+            &:not(.col-reset-exclude) {
+                @extend %container-margin-trim;
+            }
+        }
+    }
+
+    @include responsive-component-margin();
+
+    .content-section--tile & {
+        margin-bottom: 0;
+        padding-left: 0;
+        padding-right: 0;
+    }
+    &--last {
+        margin-bottom: 0 !important;
+    }
+
+    &--has-bg {
+        .content-column__inner {
+            @include responsive-row-padding();
+            padding-left: inherit;
+            padding-right: inherit;
+        }
+        &:not(.content-column--fill-gutter) {
+            background-clip: content-box;
+        }
+    }
+
+    // Theme
+    &--dark {
+        background-color: $vc-bg-dark;
+        color: $vc-bg-dark-contrast;
+    }
+
+    &--no-gutter {
+        &--xs {
+            @include breakpoint-max($screen-md - 1) {
+                padding-left: 0;
+                padding-right: 0;
+            }
+        }
+
+        @include breakpoint-md {
+            &--md-left {
+                padding-left: 0;
+            }
+            &--md-right {
+                padding-right: 0;
+            }
+        }
+    }
+}
+
+.match-content-height .content-column__inner {
+    display: flex;
+    flex-flow: row wrap;
+}
+
+// Custom Column Widths
+
+%vc-custom-column {
+    position: relative;
+    width: 100%;
+    padding-right: $grid-gutter-width-half;
+    padding-left: $grid-gutter-width-half;
+}
+
+@each $breakpoint in map-keys($grid-breakpoints) {
+    $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
+    @each $key, $value in $vc-custom-columns {
+        .col#{$infix}-#{$key} {
+            @extend %vc-custom-column;
+            @include media-breakpoint-up($breakpoint, $grid-breakpoints) {
+                flex: 0 0 $value;
+                max-width: $value;
+            }
+        }
+    }
+}

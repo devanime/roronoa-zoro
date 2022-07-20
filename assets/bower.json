@@ -1,0 +1,20 @@
+{
+    "name": "roronoa-zoro",
+    "authors": [
+        "DevAnime <devanimecards@gmail.com>"
+    ],
+    "description": "",
+    "dependencies": {
+        "estarossa.common": "../../plugins/estarossa/common"
+    },
+    "main": [
+        "dist/main.js",
+        "scss/main.scss"
+    ],
+    "ignore" : [
+        "js"
+    ],
+    "license": "MIT",
+    "homepage": "",
+    "private": true
+}

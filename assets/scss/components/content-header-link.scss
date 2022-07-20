@@ -1,0 +1,20 @@
+$content-header-link-font-size-mobile: 20px !default;
+$content-header-link-font-size-desktop: 24px !default;
+$content-header-link-container-display-mobile: none !default;
+$content-header-link-container-display-desktop: block !default;
+$content-header-link-display: inline-block !default;
+$content-header-link-color: #000 !default;
+$content-header-link-font-family: inherit !default;
+
+.content-header-link {
+    @include fluid-type($content-header-link-font-size-mobile, $content-header-link-font-size-desktop);
+    display: $content-header-link-display;
+    color: $content-header-link-color;
+    font-family: $content-header-link-font-family;
+    &__container {
+        display: $content-header-link-container-display-mobile;
+        @include breakpoint-custom($vc-breakpoint) {
+            display: $content-header-link-container-display-desktop;
+        }
+    }
+}

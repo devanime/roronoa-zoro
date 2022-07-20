@@ -1,0 +1,169 @@
+.content-background-image {
+    @extend %absolute-edges;
+    &__images {
+        width: 100%;
+    }
+    &__img {
+        display: block;
+        @extend %absolute-edges;
+        background-size: cover;
+        background-position-x: center;
+        background-position-y: center;
+        background-repeat: no-repeat;
+    }
+
+    &--has-mobile {
+        .content-background-image__img {
+            &--desktop {
+                @include breakpoint-max($vc-breakpoint - 1) {
+                    display: none !important;
+                    background-image: none !important;
+                }
+            }
+
+            &--mobile {
+                @include breakpoint-custom($vc-breakpoint) {
+                    display: none !important;
+                    background-image: none !important;
+                }
+            }
+        }
+    }
+    &--has-video {
+        .content-background-image__images {
+            display: none;
+        }
+    }
+
+    &--left {
+        .content-background-image__img {
+            background-position-x: left;
+        }
+    }
+
+    &--right {
+        .content-background-image__img {
+            background-position-x: right;
+        }
+    }
+
+    &--top {
+        .content-background-image__img {
+            background-position-y: top;
+        }
+    }
+
+    &--bottom {
+        .content-background-image__img {
+            background-position-y: bottom;
+        }
+    }
+
+    &--contain {
+        .content-background-image__img {
+            @include breakpoint-custom($vc-breakpoint) {
+                background-size: contain;
+            }
+        }
+    }
+
+    &--tile {
+        .content-background-image__img {
+            background-size: initial;
+        }
+    }
+    &--repeat-both {
+        .content-background-image__img {
+            background-repeat: repeat;
+        }
+    }
+
+    &--repeat-x {
+        .content-background-image__img {
+            background-repeat: repeat-x;
+        }
+    }
+
+    &--repeat-y {
+        .content-background-image__img {
+            background-repeat: repeat-y;
+        }
+    }
+    .content-column--has-bg & {
+    }
+    .content-column--has-bg:not(.content-column--fill-gutter) & {
+        display: flex;
+        padding: inherit;
+
+    }
+    &__videos {
+        opacity: 0;
+        transition: opacity 1000ms;
+        &--playing {
+            opacity: 1;
+        }
+    }
+    &__video {
+        position: absolute;
+        object-fit: cover;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        &--desktop {
+            display: none;
+            @include breakpoint-sm {
+                display: block;
+            }
+        }
+        &--mobile {
+            @include breakpoint-sm {
+                display: none;
+            }
+        }
+        &__overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: black;
+        }
+    }
+}
+.content-column--has-bg > *:not(.content-background-image) {
+    z-index: 1;
+}
+
+.content-column {
+    &--fill-gutter {
+        .content-background-image__images {
+            position: static;
+        }
+    }
+
+    .content-background-image__images {
+        position: relative;
+    }
+}
+
+.content-section {
+    @include media-breakpoint-up(md) {
+        &--bg-container-left {
+            > .content-background-image {
+                width: 50%;
+                left: 0;
+                right: auto;
+
+            }
+
+        }
+        &--bg-container-right {
+            > .content-background-image {
+                width: 50%;
+                left: auto;
+                right: 0;
+            }
+        }
+    }
+}

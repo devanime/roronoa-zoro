@@ -1,0 +1,60 @@
+.callout {
+    display: flex;
+    flex-flow: column;
+    justify-content: flex-start;
+    padding: 5px 10px;
+    @include breakpoint-sm {
+        padding: 25px;
+    }
+    @include breakpoint-lg {
+        padding: 35px 25px;
+        margin-bottom: 0;
+        height: 100%;
+    }
+    &__image {
+        display: none;
+        flex-flow: column;
+        justify-content: center;
+    }
+    &__content {
+        display: none;
+        flex-flow: column;
+        justify-content: center;
+        width: 100%;
+        @include breakpoint-sm {
+            display: flex;
+        }
+    }
+    &__title {
+        letter-spacing: 1px;
+        margin-top: 0;
+        margin-bottom: 20px;
+    }
+    p {
+        margin-bottom: 20px;
+    }
+    &--media {
+        margin: auto;
+        justify-content: center;
+        padding: 20px;
+        @include breakpoint-md {
+            flex-flow: row;
+        }
+        .callout__image {
+            display: flex;
+            padding-bottom: 20px;
+            align-items: center;
+            justify-content: center;
+            @include breakpoint-md {
+                padding-right: 20px;
+                padding-bottom: 0;
+            }
+            @include breakpoint-lg {
+                padding-right: 60px;
+            }
+        }
+        .callout__content {
+            display: flex;
+        }
+    }
+}

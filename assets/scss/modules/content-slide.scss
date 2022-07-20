@@ -1,0 +1,31 @@
+.vc-content-slide {
+    position: relative;
+    display: flex;
+    align-items: center;
+
+    &--has-bg {
+        padding-left: calc(#{$grid-gutter-width} / 2);
+        padding-right: calc(#{$grid-gutter-width} / 2);
+
+        &.vc-content-slide {
+            @include responsive-row-padding();
+        }
+    }
+
+    // Theme
+    &--dark {
+        background-color: $vc-bg-dark;
+        color: $vc-bg-dark-contrast;
+    }
+
+    &__inner {
+        position: relative;
+        width: 100%;
+    }
+
+
+    .content-slider--height-full & {
+        min-height: calc(100vh - var(--dynamic__header-height));
+    }
+
+}

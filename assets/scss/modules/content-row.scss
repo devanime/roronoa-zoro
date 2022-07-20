@@ -1,0 +1,61 @@
+@import '../common/variables';
+
+.content-row {
+    position: relative;
+    @include responsive-row-margin();
+
+    .content-section & {
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+
+    .content-section--grid & {
+        .content-column {
+            @if length($vc_row-margin) == 3 {
+                margin-bottom: nth($vc_row-margin, 1);
+            } @else {
+                @include fluid-val(margin-bottom, nth($vc_row-margin, 1), nth($vc_row-margin, 2));
+            }
+        }
+        &--mb-double {
+            .content-column {
+                @if length($vc_row-margin) == 3 {
+                    margin-bottom: nth($vc_row-margin, 3);
+                } @else {
+                    @include fluid-val(margin-bottom,  nth($vc_row-margin, 1) * 2,  nth($vc_row-margin, 2) * 2);
+                }
+            }
+        }
+        &--mb-half {
+            .content-column {
+                @if length($vc_row-margin) == 3 {
+                    margin-bottom: nth($vc_row-margin, 2);
+                } @else {
+                    @include fluid-val(margin-bottom,  nth($vc_row-margin, 1) * 0.5,  nth($vc_row-margin, 2) * 0.5);
+                }
+            }
+        }
+        &--mb-none {
+            .content-column {
+                margin-bottom: 0;
+            }
+        }
+    }
+    .content-section--tile & {
+        margin-left: 0;
+        margin-right: 0;
+        margin-bottom: 0;
+    }
+
+    &--has-bg {
+        &.content-row {
+            @include responsive-row-padding();
+        }
+    }
+    // Theme
+    &--dark {
+        background-color: $vc-bg-dark;
+        color: $vc-bg-dark-contrast;
+    }
+}

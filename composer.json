@@ -1,0 +1,33 @@
+{
+    "name": "devanime/roronoa-zoro",
+    "description": "A DevAnime plugin containing a collection of VC components.",
+    "authors": [
+        {
+            "name": "DevAnime",
+            "email": "devanimecards@gmail.com"
+        }
+    ],
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://wpackagist.org"
+        },
+        {
+            "type": "composer",
+            "url": "https://packages.devanimecards.io"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "DevAnime\\RoronoaZoro\\": "src"
+        },
+        "files": ["src/functions.php"]
+    },
+    "type": "wordpress-plugin",
+    "require": {
+        "php": "^7.0",
+        "devanime/black-sword-shusui": "dev-master",
+        "devanime/estarossa": "*",
+        "devanime/satoru-gojo": "*"
+    }
+}

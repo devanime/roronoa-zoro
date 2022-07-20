@@ -1,0 +1,11 @@
+.responsive-spacer {
+    margin: 0 !important;
+    @include responsive-height($vc-responsive-spacer-height);
+    width: 100%;
+    @each $factor in $vc-responsive-spacer-factors {
+        $factor_key: str-replace(inspect($factor), '.', '_');
+        &--#{$factor_key} {
+            @include responsive-height($vc-responsive-spacer-height, $factor);
+        }
+    }
+}

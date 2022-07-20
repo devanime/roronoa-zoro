@@ -1,0 +1,199 @@
+.vc-hidden {
+    display: none !important;
+}
+
+@mixin responsive-margin--var($default, $half, $double) {
+    margin-bottom: $default;
+    &--mb-double {
+        margin-bottom: $double;
+    }
+    &--mb-half {
+        margin-bottom: $half;
+    }
+}
+
+@mixin responsive-margin--fluid($min, $max) {
+    @include fluid-val(margin-bottom, $min, $max);
+    &--mb-double {
+        @include fluid-val(margin-bottom, $min * 2, $max * 2);
+    }
+    &--mb-half {
+        @include fluid-val(margin-bottom, $min * 0.5, $max * 0.5);
+    }
+}
+
+@mixin responsive-height($values, $factor: 1) {
+    @if length($values) == 3 {
+        height: calc(#{$factor} * #{nth($values, 1)});
+    } @else {
+        $min: $factor * nth($values, 1);
+        $max: $factor * nth($values, 2);
+        @include fluid-val(height, $min, $max);
+    }
+}
+
+
+@mixin responsive-margin($values) {
+    @if length($values) == 3 {
+        @include responsive-margin--var($values...);
+    } @else {
+        @include responsive-margin--fluid($values...);
+    }
+    &--mb-none {
+        margin-bottom: 0 !important;
+    }
+}
+
+@mixin responsive-padding--var($default, $half, $double) {
+    padding-top: $default;
+    padding-bottom: $default;
+    &--tpad-double {
+        padding-top: $double;
+    }
+    &--tpad-half {
+        padding-top: $half;
+    }
+    &--bpad-double {
+        padding-bottom: $double;
+    }
+    &--bpad-half {
+        padding-bottom: $half;
+    }
+}
+
+@mixin responsive-padding--fluid($min, $max) {
+    @include fluid-val((padding-top, padding-bottom), $min, $max);
+    &--tpad-double {
+        @include fluid-val((padding-top), $min * 2, $max * 2);
+    }
+    &--tpad-half {
+        @include fluid-val((padding-top), $min * 0.5, $max * 0.5);
+    }
+    &--bpad-double {
+        @include fluid-val((padding-bottom), $min * 2, $max * 2);
+    }
+    &--bpad-half {
+        @include fluid-val((padding-bottom), $min * 0.5, $max * 0.5);
+    }
+}
+
+
+
+@mixin responsive-padding($values) {
+    @if length($values) == 3 {
+        @include responsive-padding--var($values...);
+    } @else {
+        @include responsive-padding--fluid($values...);
+    }
+
+    &--tpad-none {
+        padding-top: 0;
+    }
+    &--bpad-none {
+        padding-bottom: 0;
+    }
+}
+
+@mixin responsive-section-margin() {
+    @include responsive-margin($vc-section-margin);
+}
+
+@mixin responsive-section-padding() {
+    @include responsive-padding($vc-section-margin);
+}
+
+@mixin responsive-row-margin() {
+    @include responsive-margin($vc-row-margin);
+}
+
+@mixin responsive-row-padding() {
+    @include responsive-padding($vc-row-margin);
+}
+
+@mixin responsive-component-margin() {
+    @include responsive-margin($vc-component-margin);
+}
+
+@mixin responsive-component-margin-default() {
+    @if length($vc-component-margin) == 3 {
+        margin-bottom: nth($vc-component-margin, 1);
+    } @else {
+        @include fluid-val(margin-bottom, nth($vc-component-margin, 1), nth($vc-component-margin, 2));
+    }
+}
+
+%responsive-section-margin {
+    @include responsive-section-margin;
+}
+
+%responsive-section-padding {
+    @include responsive-section-padding;
+}
+
+%responsive-row-margin {
+    @include responsive-row-margin;
+}
+
+%responsive-row-padding {
+    @include responsive-row-padding;
+}
+
+%responsive-component-margin {
+    @include responsive-component-margin;
+}
+
+
+%absolute-edges {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+%absolute-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate3d(-50%, -50%, 0);
+}
+
+%background-ratio {
+    .content-section {
+        &__background-image-container {
+            position: relative;
+        }
+
+        &__background-image {
+            @extend %absolute-edges;
+        }
+    }
+
+    > .container > .row,
+    > .container-fluid > .row {
+        @extend %absolute-center;
+    }
+}
+
+%flex-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    flex-flow: column wrap;
+}
+
+%container-margin-trim {
+    @include recursive-descendant(first, 4) {
+        margin-top: 0 !important;
+    }
+    @include recursive-descendant(last, 4) {
+        margin-bottom: 0 !important;
+    }
+    &:first-child{
+        margin-top: 0;
+    }
+    &:last-child {
+        margin-bottom: 0;
+    }
+}

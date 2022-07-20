@@ -1,0 +1,29 @@
+$vc-single-image-margin: 0 !default;
+$vc-single-image-width: auto !default;
+
+.vc-single-image {
+    &__figure {
+        margin: 0;
+    }
+
+    &__image {
+        margin: $vc-single-image-margin;
+        width: $vc-single-image-width;
+    }
+
+    &__caption {
+        clear: both;
+    }
+
+    &--left {
+        text-align: left;
+    }
+
+    &--center {
+        text-align: center;
+    }
+
+    &--right {
+        text-align: right;
+    }
+}

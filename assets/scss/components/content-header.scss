@@ -1,0 +1,8 @@
+$content-header-breakpoint: sm !default;
+$content-header-display: flex !default;
+
+.content-header {
+    display: $content-header-display;
+    justify-content: space-between;
+    align-items: center;
+}

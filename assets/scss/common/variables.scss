@@ -1,0 +1,34 @@
+// Variables
+//
+
+$vc-bg-dark: black !default;
+$vc-bg-dark-contrast: white !default;
+
+// Fluid margins below sections (mobile, desktop)
+$vc-section-margin: ($grid-gutter-width, $grid-gutter-width * 2) !default;
+
+// Fluid margins below rows (mobile, desktop)
+$vc-row-margin: ($grid-gutter-width, $grid-gutter-width) !default;
+
+// Fluid margins below elements/components (mobile, desktop)
+$vc-component-margin: ($paragraph-margin-bottom, $paragraph-margin-bottom) !default;
+
+$vc-breakpoint: $screen-md !default;
+
+$content-section-width-narrow: 930px !default;
+$content-section-inner-width-narrow: $content-section-width-narrow !default;
+$vc-container-max-width: 0 !default;
+
+@if variable_exists(container-max-width) {
+    $vc-container-max-width: $container-max-width;
+} @else {
+    $vc-container-max-width: $container-width;
+}
+
+$vc-responsive-spacer-height: $vc-row-margin !default;
+
+$vc-responsive-spacer-factors: (0.25, 0.5, 1.5, 2, 3, 4, 5, 6, 7, 8, 9, 10) !default;
+
+$grid-gutter-width-half: $grid-gutter-width * 0.5 !default;
+
+$vc-custom-columns: ('1_5': 20%, '2_5': 40%, '3_5': 60%, '4_5': 80%, '5_5': 100%) !default;
