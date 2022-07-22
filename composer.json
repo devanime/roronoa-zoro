@@ -26,7 +26,7 @@
     "type": "wordpress-plugin",
     "require": {
         "php": "^7.0",
-        "devanime/black-sword-shusui": "dev-master",
+        "devanime/monkey-d-luffy": "dev-master",
         "devanime/estarossa": "*",
         "devanime/satoru-gojo": "*"
     }
