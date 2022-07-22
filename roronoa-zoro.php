@@ -1,7 +1,7 @@
 <?php
 /*
-Plugin Name: Visual Composer Library
-Description: A devanime plugin with a custom setup for Visual Composer with a collection of custom components.
+Plugin Name: Roronoa Zoro
+Description: A custom build over Visual Composer, this is the page-builder CMS experience.
 Version: 9999
 License: GPL-2.0+
 */
