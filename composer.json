@@ -25,7 +25,7 @@
     },
     "type": "wordpress-plugin",
     "require": {
-        "php": "^8.0",
+        "php": "^8.2",
         "devanime/monkey-d-luffy": "*",
         "devanime/estarossa": "*",
         "devanime/satoru-gojo": "*"
